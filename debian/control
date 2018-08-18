@@ -1,0 +1,12 @@
+Source: gemini-linux-kernel-ramdisk
+Section: kernel
+Priority: extra
+Maintainer: Adam Boardman <adamboardman@gmail.com>
+Build-Depends:
+Standards-Version: 3.9.8
+Vcs-Git: https://github.com/gemian/gemini-linux-kernel-ramdisk.git
+
+Package: gemini-kernel-image-ramdisk
+Architecture: all
+Description: Gemini Kernel Ramdisk
+ Contains the busybox and initramfs init script

@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# keep lintian happy:
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep:
+
+build-stamp:
+
+clean: checkdir
+
+binary-arch:
+
+binary-indep:
+	-rm -rf debian/tmp
+	install -p -d -o root -g root -m 755 debian/tmp
+	install -p -d -o root -g root -m 755 debian/tmp/DEBIAN
+	install -p -d -o root -g root -m 755 debian/tmp/usr/share/kernel
+	install -p    -o root -g root -m 644 ramdisk.cpio.gz debian/tmp/usr/share/kernel/ramdisk.cpio.gz
+	dpkg-gencontrol
+	dpkg --build debian/tmp ..
+
+binary:         binary-arch binary-indep
+
+checkdir:
+	@test -f debian/rules
+
+checkroot: checkdir
+	@test 0 = `id -u` || { echo "Error: not super-user"; exit 1; }
+
+.PHONY: binary binary-arch binary-indep clean checkroot checkdir build build-arch build-indep

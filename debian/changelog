@@ -1,0 +1,5 @@
+gemini-linux-kernel-ramdisk (0.1) stretch; urgency=low
+
+  * Initial release from TheKit
+
+ -- Adam Boardman <adamboardman@gmail.com>  Wed, 18 Aug 2018 10:11:00 +0000
