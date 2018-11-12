@@ -14,8 +14,6 @@ build-stamp:
 clean: checkdir
 
 binary-arch:
-	cd data; find . -print -depth | cpio -ov > ../ramdisk.cpio
-	gzip -n -f ramdisk.cpio
 
 binary-indep:
 	-rm -rf debian/tmp
